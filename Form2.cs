@@ -168,7 +168,6 @@ namespace SalaryCalculator_Elvis
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             //this.testWindow.Text = this.monthCalendar1.SelectionRange.Start+" to "+this.monthCalendar1.SelectionRange.End;
-
         }
 
         private void testWindow_TextChanged(object sender, EventArgs e)
