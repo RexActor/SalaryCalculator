@@ -12,14 +12,14 @@ using System.Windows.Forms;
 namespace SalaryCalculator_Elvis
 {
 
-    public partial class Form2 : Form
+    public partial class Calendar : Form
     {
         Button addMonth = new Button();
         Button reduceMonth = new Button();
         Label monthYear = new Label();
         DateTime timeNow;
 
-        public Form2()
+        public Calendar()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -40,7 +40,7 @@ namespace SalaryCalculator_Elvis
             /*
             Generate month and year in form
             */
-            
+
             // DateTime.Now.Ad
             timeNow = DateTime.Today;
             monthYear.Text = timeNow.ToString("Y");
@@ -80,7 +80,6 @@ namespace SalaryCalculator_Elvis
             {
                 Label weekDays = new Label();
                 weekDays.Name = "Weekday" + z.ToString();
-
                 weekDays.Size = new System.Drawing.Size(75, 50);
                 weekDays.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
                 weekDays.Location = new Point(20 + (z * 74), 50);
@@ -113,7 +112,6 @@ namespace SalaryCalculator_Elvis
                     // bool lblClicked = true;
 
                     this.Controls.Add(t);
-
                     counter++;
 
                     /*
@@ -126,7 +124,6 @@ namespace SalaryCalculator_Elvis
                 }
         }
 
-
         private void nextMonth(object sender, EventArgs e)
         {
             Button click = (Button)sender;
@@ -136,7 +133,6 @@ namespace SalaryCalculator_Elvis
                 newDate = DateTime.Parse(monthYear.Text);
                 monthYear.Text = newDate.AddMonths(1).ToString("Y");
             }
-
         }
         private void prevMonth(object sender, EventArgs e)
         {

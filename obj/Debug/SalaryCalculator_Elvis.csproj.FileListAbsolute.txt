@@ -2,9 +2,9 @@ c:\users\gatis\documents\visual studio 2015\Projects\SalaryCalculator_Elvis\Sala
 c:\users\gatis\documents\visual studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\bin\Debug\SalaryCalculator_Elvis.exe
 c:\users\gatis\documents\visual studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\bin\Debug\SalaryCalculator_Elvis.pdb
 c:\users\gatis\documents\visual studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Debug\SalaryCalculator_Elvis.csprojResolveAssemblyReference.cache
-c:\users\gatis\documents\visual studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Debug\SalaryCalculator_Elvis.Form1.resources
 c:\users\gatis\documents\visual studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Debug\SalaryCalculator_Elvis.Properties.Resources.resources
 c:\users\gatis\documents\visual studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Debug\SalaryCalculator_Elvis.csproj.GenerateResource.Cache
 c:\users\gatis\documents\visual studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Debug\SalaryCalculator_Elvis.exe
 c:\users\gatis\documents\visual studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Debug\SalaryCalculator_Elvis.pdb
-c:\users\gatis\documents\visual studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Debug\SalaryCalculator_Elvis.Form2.resources
+c:\Users\Gatis\Documents\Visual Studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Debug\SalaryCalculator_Elvis.Main.resources
+c:\Users\Gatis\Documents\Visual Studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Debug\SalaryCalculator_Elvis.Calendar.resources
