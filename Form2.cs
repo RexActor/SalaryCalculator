@@ -17,6 +17,7 @@ namespace SalaryCalculator_Elvis
         Button addMonth = new Button();
         Button reduceMonth = new Button();
         Label monthYear = new Label();
+        DateTime timeNow;
 
         public Form2()
         {
@@ -39,9 +40,10 @@ namespace SalaryCalculator_Elvis
             /*
             Generate month and year in form
             */
-
+            
             // DateTime.Now.Ad
-            monthYear.Text = DateTime.Now.ToString("Y");
+            timeNow = DateTime.Today;
+            monthYear.Text = timeNow.ToString("Y");
             monthYear.Size = new System.Drawing.Size(200, 40);
             monthYear.Location = new Point(200, 10);
             monthYear.Visible = true;
@@ -123,20 +125,27 @@ namespace SalaryCalculator_Elvis
                     }
                 }
         }
+
+
         private void nextMonth(object sender, EventArgs e)
         {
-            monthYear.Text = DateTime.Now.AddMonths(1).ToString("Y");
+            Button click = (Button)sender;
+            if (click != null)
+            {
+                DateTime newDate = new DateTime();
+                newDate = DateTime.Parse(monthYear.Text);
+                monthYear.Text = newDate.AddMonths(1).ToString("Y");
+            }
 
         }
         private void prevMonth(object sender, EventArgs e)
         {
             Button click = (Button)sender;
-
-            click = null;
-            while (click == null)
+            if (click != null)
             {
-                monthYear.Text = DateTime.Now.AddMonths(-1).ToString("Y");
-                // click = null;
+                DateTime newDate = new DateTime();
+                newDate = DateTime.Parse(monthYear.Text);
+                monthYear.Text = newDate.AddMonths(-1).ToString("Y");
             }
         }
 
