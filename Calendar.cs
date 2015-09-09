@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Collections;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,8 +17,25 @@ namespace SalaryCalculator_Elvis
     {
         Button addMonth = new Button();
         Button reduceMonth = new Button();
+        Dictionary<string, string> dateColorDictionary = new Dictionary<string, string>();
         Label monthYear = new Label();
         DateTime timeNow;
+
+
+        //public  Dictionary<string,string> createDateArray()
+        //{
+        //    Dictionary<string, string> dictionary = new Dictionary<string, string>();
+        //   // dictionary.Add("1","Color.AliceBlue");
+        //    for (int i=1; i < 32; i++)
+        //    {
+        //        dictionary.Add(i.ToString(), "Color.AliceBlue");
+        //    }
+
+
+
+
+        //    return dictionary;
+        //}
 
         public Calendar()
         {
@@ -34,9 +52,15 @@ namespace SalaryCalculator_Elvis
             generateCalendar();
         }
 
-        private void generateCalendar()
+        public void generateCalendar()
         {
+
+            
+            // dictionary.Add("1","Color.AliceBlue");
+           
             this.SuspendLayout();
+           
+
             /*
             Generate month and year in form
             */
@@ -98,7 +122,7 @@ namespace SalaryCalculator_Elvis
             for (int y = 0; y < 5; y++)
                 for (int x = 0; x < 7; x++)
                 {
-                    System.Windows.Forms.Label t = new System.Windows.Forms.Label();
+                    Label t = new Label();
                     t.BackColor = System.Drawing.Color.White;
                     t.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
                     t.Location = new System.Drawing.Point(20 + (x * 74), 99 + (y * 49));
@@ -110,6 +134,11 @@ namespace SalaryCalculator_Elvis
                     t.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                     t.Click += new EventHandler(labelClick);
                     // bool lblClicked = true;
+
+
+
+
+
 
                     this.Controls.Add(t);
                     counter++;
@@ -147,23 +176,70 @@ namespace SalaryCalculator_Elvis
 
         private void labelClick(object sender, EventArgs e)
         {
+            /*
+            dictionary creation for date color change saving
+            */
+            
+
+
+
+
             Label button = (Label)sender;
 
             if (button.BackColor == Color.AliceBlue)
             {
+               if (dateColorDictionary.Count == 0)
+                {
+                   
+
+
+                    dateColorDictionary.Add(button.Text,"Color.Green");
+
+                }
+              else if (dateColorDictionary.Count != 0)
+                    {
+                        dateColorDictionary.Remove(button.Text);
+                        dateColorDictionary.Add(button.Text, "Color.Green");
+                    }
+
+                    else if (dateColorDictionary.Count!=0)
+                {
+                    dateColorDictionary.Remove(button.Text);
+                    
+                    
+                }
                 button.BackColor = Color.Green;
+
             }
             else if (button.BackColor == Color.Green)
             {
+                dateColorDictionary.Remove(button.Text);
+                dateColorDictionary.Add(button.Text, "Color.Red");
                 button.BackColor = Color.Red;
             }
             else if (button.BackColor == Color.Red)
             {
+                dateColorDictionary.Remove(button.Text);
+                dateColorDictionary.Add(button.Text, "Color.Yellow");
                 button.BackColor = Color.Yellow;
             }
             else
+            {
+                //dateColorArray.Add()
+                dateColorDictionary.Remove(button.Text);
+               // dateColorDictionary.Add(button.Text, "Color.AliceBlue");
                 button.BackColor = Color.AliceBlue;
 
+            }
+            /*
+            for testing array in our test window
+            */
+          //  var odered = dateColorDictionary.Keys.OrderByDescending(k => dateColorDictionary[button.Text]).ToList();
+
+            testWindow.Text = string.Join(" ", dateColorDictionary);
+
+
+            
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -177,6 +253,12 @@ namespace SalaryCalculator_Elvis
 
         private void testWindow_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void saveCalendarButton_Click(object sender, EventArgs e)
+        {
+            generateCalendar();
 
         }
     }
