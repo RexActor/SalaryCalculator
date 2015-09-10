@@ -17,7 +17,9 @@ namespace SalaryCalculator_Elvis
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            progressBar1.ForeColor = Color.Red;
             this.progressBar1.Value = 30;
+         
             this.Text = "Salary Calculator";
         }
 

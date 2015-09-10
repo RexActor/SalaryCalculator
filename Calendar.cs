@@ -20,7 +20,7 @@ namespace SalaryCalculator_Elvis
         Dictionary<string, string> dateColorDictionary = new Dictionary<string, string>();
         Label monthYear = new Label();
         DateTime timeNow;
-
+        int offset = 0;
         public Calendar()
         {
             InitializeComponent();
@@ -35,11 +35,44 @@ namespace SalaryCalculator_Elvis
             this.ResumeLayout(false);
             generateCalendar();
         }
+        public int checkMonthStart(string month)
+        {
+            //int offset = 0;
+            switch (month)
+            {
+                case "Monday":
+                    offset = 0;
+                    break;
+                case "Tuesday":
+                    offset = 1;
+                    break;
+                case "Wednesday":
+                    offset = 2;
 
+                    break;
+                case "Thursday":
+                    offset = 3;
+                    break;
+                case "Friday":
+                    offset = 4;
+                    break;
+                case "Saturday":
+                    offset = 5;
+                    break;
+                case "Sunday":
+                    offset = 6;
+                    break;
+                default:
+                    offset = 0;
+                    break;
+
+            }
+            return offset;
+        }
         public void generateCalendar()
         {
             // dictionary.Add("1","Color.AliceBlue");
-
+            
             this.SuspendLayout();
 
             /*
@@ -78,7 +111,7 @@ namespace SalaryCalculator_Elvis
             /*
             Generates week day names
             */
-
+            
             int counter = 1;
             string[] weekDayArray = new String[7] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
             for (int z = 0; z < 7; z++)
@@ -100,17 +133,29 @@ namespace SalaryCalculator_Elvis
             Generates dates for month
             Big thanks for @purposelydrifting for help
             */
+            /*
+            check in which day starts month
+            */
+
+
+            
+            var startOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
+
+            int offset = checkMonthStart(startOfMonth.ToString("dddd"));
             for (int y = 0; y < 5; y++)
                 for (int x = 0; x < 7; x++)
                 {
                     Label t = new Label();
+                   
+
+
                     t.BackColor = System.Drawing.Color.White;
                     t.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
                     t.Location = new System.Drawing.Point(20 + (x * 74), 99 + (y * 49));
-                    t.Name = "lblSquare" + counter.ToString();
+                    t.Name = "lblSquare" + offset;
                     t.Size = new System.Drawing.Size(75, 50);
                     t.TabIndex = counter - 1;
-                    t.Text = counter.ToString();
+                    t.Text = (counter - offset).ToString();
                     t.BackColor = Color.AliceBlue;
                     t.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                     t.Click += new EventHandler(labelClick);
@@ -118,9 +163,19 @@ namespace SalaryCalculator_Elvis
 
                     this.Controls.Add(t);
 
-                    t.Visible = counter < 32;//hide dates after 31st
+                    // t.Visible = 0 < offset;
+                   
+                    t.Visible = counter - checkMonthStart(startOfMonth.ToString("dddd")) < System.DateTime.DaysInMonth(timeNow.Year, timeNow.Month)+2;
+                    t.Visible = int.Parse(t.Text) >= offset;
                     counter++;
+                    //int i = 0;
+                  
+
+
+                    // var startOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
+                    testWindow.Text = startOfMonth.ToString("dddd");
                 }
+
         }
 
         private void nextMonth(object sender, EventArgs e)
@@ -130,7 +185,13 @@ namespace SalaryCalculator_Elvis
             {
                 DateTime newDate = new DateTime();
                 newDate = DateTime.Parse(monthYear.Text);
-                monthYear.Text = newDate.AddMonths(1).ToString("Y");
+                newDate = newDate.AddMonths(1);
+                timeNow = newDate;
+                monthYear.Text = newDate.ToString("Y");
+                var startOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
+                testWindow.Text = startOfMonth.ToString("dddd");
+               // checkMonthStart(startOfMonth.ToString("dddd"));
+                
             }
         }
         private void prevMonth(object sender, EventArgs e)
@@ -140,7 +201,13 @@ namespace SalaryCalculator_Elvis
             {
                 DateTime newDate = new DateTime();
                 newDate = DateTime.Parse(monthYear.Text);
-                monthYear.Text = newDate.AddMonths(-1).ToString("Y");
+                newDate = newDate.AddMonths(-1);
+                timeNow = newDate;
+                monthYear.Text = newDate.ToString("Y");
+
+                var startOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
+                testWindow.Text = startOfMonth.ToString("dddd");
+                //checkMonthStart(startOfMonth.ToString("dddd"));
             }
         }
 
@@ -176,6 +243,12 @@ namespace SalaryCalculator_Elvis
             else if (button.BackColor == Color.Green)
             {
                 dateColorDictionary.Remove(button.Text);
+                dateColorDictionary.Add(button.Text, "Color.Blue");
+                button.BackColor = Color.Blue;
+            }
+            else if (button.BackColor == Color.Blue)
+            {
+                dateColorDictionary.Remove(button.Text);
                 dateColorDictionary.Add(button.Text, "Color.Red");
                 button.BackColor = Color.Red;
             }
@@ -185,12 +258,7 @@ namespace SalaryCalculator_Elvis
                 dateColorDictionary.Add(button.Text, "Color.Yellow");
                 button.BackColor = Color.Yellow;
             }
-            else if (button.BackColor == Color.Yellow)
-            {
-                dateColorDictionary.Remove(button.Text);
-                dateColorDictionary.Add(button.Text, "Color.Blue");
-                button.BackColor = Color.Blue;
-            }
+
 
             else
             {
