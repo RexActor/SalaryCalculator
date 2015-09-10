@@ -21,22 +21,6 @@ namespace SalaryCalculator_Elvis
         Label monthYear = new Label();
         DateTime timeNow;
 
-
-        //public  Dictionary<string,string> createDateArray()
-        //{
-        //    Dictionary<string, string> dictionary = new Dictionary<string, string>();
-        //   // dictionary.Add("1","Color.AliceBlue");
-        //    for (int i=1; i < 32; i++)
-        //    {
-        //        dictionary.Add(i.ToString(), "Color.AliceBlue");
-        //    }
-
-
-
-
-        //    return dictionary;
-        //}
-
         public Calendar()
         {
             InitializeComponent();
@@ -54,12 +38,9 @@ namespace SalaryCalculator_Elvis
 
         public void generateCalendar()
         {
-
-            
             // dictionary.Add("1","Color.AliceBlue");
-           
+
             this.SuspendLayout();
-           
 
             /*
             Generate month and year in form
@@ -135,21 +116,10 @@ namespace SalaryCalculator_Elvis
                     t.Click += new EventHandler(labelClick);
                     // bool lblClicked = true;
 
-
-
-
-
-
                     this.Controls.Add(t);
-                    counter++;
 
-                    /*
-                    Lets hide dates which ones are biger than 31
-                    */
-                    if (t.Name.Contains("32") || t.Name.Contains("33") || t.Name.Contains("34") || t.Name.Contains("35"))
-                    {
-                        t.Visible = false;
-                    }
+                    t.Visible = counter < 32;//hide dates after 31st
+                    counter++;
                 }
         }
 
@@ -179,34 +149,26 @@ namespace SalaryCalculator_Elvis
             /*
             dictionary creation for date color change saving
             */
-            
-
-
-
 
             Label button = (Label)sender;
 
             if (button.BackColor == Color.AliceBlue)
             {
-               if (dateColorDictionary.Count == 0)
+                if (dateColorDictionary.Count == 0)
                 {
-                   
 
-
-                    dateColorDictionary.Add(button.Text,"Color.Green");
-
+                    dateColorDictionary.Add(button.Text, "Color.Green");
                 }
-              else if (dateColorDictionary.Count != 0)
-                    {
-                        dateColorDictionary.Remove(button.Text);
-                        dateColorDictionary.Add(button.Text, "Color.Green");
-                    }
-
-                    else if (dateColorDictionary.Count!=0)
+                else if (dateColorDictionary.Count != 0)
                 {
                     dateColorDictionary.Remove(button.Text);
-                    
-                    
+                    dateColorDictionary.Add(button.Text, "Color.Green");
+                }
+
+                else if (dateColorDictionary.Count != 0)
+                {
+                    dateColorDictionary.Remove(button.Text);
+
                 }
                 button.BackColor = Color.Green;
 
@@ -223,23 +185,27 @@ namespace SalaryCalculator_Elvis
                 dateColorDictionary.Add(button.Text, "Color.Yellow");
                 button.BackColor = Color.Yellow;
             }
+            else if (button.BackColor == Color.Yellow)
+            {
+                dateColorDictionary.Remove(button.Text);
+                dateColorDictionary.Add(button.Text, "Color.Blue");
+                button.BackColor = Color.Blue;
+            }
+
             else
             {
-                //dateColorArray.Add()
+
                 dateColorDictionary.Remove(button.Text);
-               // dateColorDictionary.Add(button.Text, "Color.AliceBlue");
+                // dateColorDictionary.Add(button.Text, "Color.AliceBlue");
                 button.BackColor = Color.AliceBlue;
 
             }
             /*
             for testing array in our test window
             */
-          //  var odered = dateColorDictionary.Keys.OrderByDescending(k => dateColorDictionary[button.Text]).ToList();
 
             testWindow.Text = string.Join(" ", dateColorDictionary);
 
-
-            
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -259,6 +225,11 @@ namespace SalaryCalculator_Elvis
         private void saveCalendarButton_Click(object sender, EventArgs e)
         {
             generateCalendar();
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
 
         }
     }

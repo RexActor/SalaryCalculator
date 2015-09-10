@@ -1,0 +1,9 @@
+c:\Users\Gatis\Documents\Visual Studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\bin\Release\SalaryCalculator_Elvis.exe.config
+c:\Users\Gatis\Documents\Visual Studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\bin\Release\SalaryCalculator_Elvis.exe
+c:\Users\Gatis\Documents\Visual Studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\bin\Release\SalaryCalculator_Elvis.pdb
+c:\Users\Gatis\Documents\Visual Studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Release\SalaryCalculator_Elvis.Main.resources
+c:\Users\Gatis\Documents\Visual Studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Release\SalaryCalculator_Elvis.Calendar.resources
+c:\Users\Gatis\Documents\Visual Studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Release\SalaryCalculator_Elvis.Properties.Resources.resources
+c:\Users\Gatis\Documents\Visual Studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Release\SalaryCalculator_Elvis.csproj.GenerateResource.Cache
+c:\Users\Gatis\Documents\Visual Studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Release\SalaryCalculator_Elvis.exe
+c:\Users\Gatis\Documents\Visual Studio 2015\Projects\SalaryCalculator_Elvis\SalaryCalculator_Elvis\obj\Release\SalaryCalculator_Elvis.pdb
