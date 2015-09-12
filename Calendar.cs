@@ -27,9 +27,9 @@ namespace SalaryCalculator_Elvis
             this.StartPosition = FormStartPosition.CenterScreen;
             //monthCalendar1.Al
 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 40F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 478);
+            this.ClientSize = new System.Drawing.Size(700, 800);
             this.Name = "Form2";
             this.Text = "Calendar";
             this.ResumeLayout(false);
@@ -72,7 +72,7 @@ namespace SalaryCalculator_Elvis
         public void generateCalendar()
         {
             // dictionary.Add("1","Color.AliceBlue");
-            
+
             this.SuspendLayout();
 
             /*
@@ -111,7 +111,7 @@ namespace SalaryCalculator_Elvis
             /*
             Generates week day names
             */
-            
+
             int counter = 1;
             string[] weekDayArray = new String[7] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
             for (int z = 0; z < 7; z++)
@@ -138,15 +138,15 @@ namespace SalaryCalculator_Elvis
             */
 
 
-            
+
             var startOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
 
             int offset = checkMonthStart(startOfMonth.ToString("dddd"));
-            for (int y = 0; y < 5; y++)
+            for (int y = 0; y < 5 + offset; y++)
                 for (int x = 0; x < 7; x++)
                 {
                     Label t = new Label();
-                   
+
 
 
                     t.BackColor = System.Drawing.Color.White;
@@ -163,17 +163,16 @@ namespace SalaryCalculator_Elvis
 
                     this.Controls.Add(t);
 
-                    // t.Visible = 0 < offset;
-                   
-                    t.Visible = counter - checkMonthStart(startOfMonth.ToString("dddd")) < System.DateTime.DaysInMonth(timeNow.Year, timeNow.Month)+2;
-                    t.Visible = int.Parse(t.Text) >= offset;
+                    /*
+                    Hiding dates which ones are not in following month
+                    */
+                    t.Visible = (int.Parse(t.Text) >= offset - (offset - 1))
+                        && (counter - checkMonthStart(startOfMonth.ToString("dddd"))
+                        < System.DateTime.DaysInMonth(startOfMonth.Year, startOfMonth.Month) + 1);
+
                     counter++;
-                    //int i = 0;
-                  
 
-
-                    // var startOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
-                    testWindow.Text = startOfMonth.ToString("dddd");
+                    testWindow.Text = startOfMonth.ToString("dddd") + " " + DateTime.DaysInMonth(startOfMonth.Year, startOfMonth.Month);
                 }
 
         }
@@ -189,9 +188,9 @@ namespace SalaryCalculator_Elvis
                 timeNow = newDate;
                 monthYear.Text = newDate.ToString("Y");
                 var startOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
-                testWindow.Text = startOfMonth.ToString("dddd");
-               // checkMonthStart(startOfMonth.ToString("dddd"));
-                
+                testWindow.Text = startOfMonth.ToString("dddd") + " " + DateTime.DaysInMonth(startOfMonth.Year, startOfMonth.Month); ;
+
+
             }
         }
         private void prevMonth(object sender, EventArgs e)
@@ -206,8 +205,8 @@ namespace SalaryCalculator_Elvis
                 monthYear.Text = newDate.ToString("Y");
 
                 var startOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
-                testWindow.Text = startOfMonth.ToString("dddd");
-                //checkMonthStart(startOfMonth.ToString("dddd"));
+                testWindow.Text = startOfMonth.ToString("dddd") + " " + DateTime.DaysInMonth(startOfMonth.Year, startOfMonth.Month); ;
+
             }
         }
 
