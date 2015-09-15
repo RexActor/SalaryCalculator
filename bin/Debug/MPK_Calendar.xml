@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MPK_Calendar</name>
+    </assembly>
+    <members>
+        <member name="T:MPK_Calendar.SelectedDateChangedEventHandler">
+            <summary>
+            Event handler for SelectedDate changed
+            </summary>
+        </member>
+        <member name="T:MPK_Calendar.MPK_Calendar">
+            <summary>
+            Summary description for UserControl1.
+            </summary>
+        </member>
+        <member name="F:MPK_Calendar.MPK_Calendar.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="E:MPK_Calendar.MPK_Calendar.SelectedDateChanged">
+            <summary>
+            Event handler definition
+            </summary>
+        </member>
+        <member name="M:MPK_Calendar.MPK_Calendar.OnSelectedDateChanged(MPK_Calendar.SelectedDateChangedEventArgs)">
+            <summary>
+            Raises event by invoking delegate
+            </summary>
+            <param name="eventArgs"></param>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.intYear">
+            <summary>
+            The year of the active month
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.intMonth">
+            <summary>
+            The number of the active month.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.BoldedDates">
+            <summary>
+            Array of dates to be bolded.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.intDay">
+            <summary>
+            The day number of the selected date.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.SelectedDate">
+            <summary>
+            The selected date.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.ShowPrevNextButton">
+            <summary>
+            Property - Determines whether the Previous and Next buttons are visible.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.DisplayWeekendsDarker">
+            <summary>
+            Property - Determines whether the weekends are displayed darker.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.ShowGrid">
+            <summary>
+            Property - Determines whether or not the grid is drawn.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.AbbreviateWeekDayHeader">
+            <summary>
+            Property - Determines whether or not to abbreviate the weekday in the header.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.ShowCurrentMonthInDay">
+            <summary>
+            Property - Determines whether or not to display the month name in each day of the current month.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.GridColor">
+            <summary>
+            Property - Grid color.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.HeaderColor">
+            <summary>
+            Property - Header background color.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.BackgroundColor">
+            <summary>
+            Property - Control background color.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.ActiveMonthColor">
+            <summary>
+            Property - Color of the active month.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.InactiveMonthColor">
+            <summary>
+            Property - Color of the inactive month.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.BoldedDateFontColor">
+            <summary>
+            Property - Color for bolded dates font.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.SelectedDayColor">
+            <summary>
+            Property - Color of the background for selected day.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.SelectedDayFontColor">
+            <summary>
+            Property - Color of the text for selected day.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.NonselectedDayFontColor">
+            <summary>
+            Property - Color of the text for non-selected days.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.ApptFont">
+            <summary>
+            Property - Font for bolded days.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.NoApptFont">
+            <summary>
+            Property - Font for not bolded days.
+            </summary>
+        </member>
+        <member name="P:MPK_Calendar.MPK_Calendar.HeaderFont">
+            <summary>
+            Property - Header text font.
+            </summary>
+        </member>
+        <member name="M:MPK_Calendar.MPK_Calendar.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:MPK_Calendar.MPK_Calendar.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:MPK_Calendar.MPK_Calendar.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="T:MPK_Calendar.SelectedDateChangedEventArgs">
+            <summary>
+            Event argument class.
+            </summary>
+        </member>
+        <member name="M:MPK_Calendar.SelectedDateChangedEventArgs.#ctor(System.DateTime)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="dateSelected">Date</param>
+        </member>
+        <member name="P:MPK_Calendar.SelectedDateChangedEventArgs.SelectedDate">
+            <summary>
+            The selected date.
+            </summary>
+        </member>
+    </members>
+</doc>

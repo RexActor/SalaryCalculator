@@ -1,6 +1,6 @@
 ﻿namespace SalaryCalculator_Elvis
 {
-    partial class Main
+    partial class mainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -48,6 +48,8 @@
             // 
             // infoTextRichBox
             // 
+            this.infoTextRichBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.infoTextRichBox.Location = new System.Drawing.Point(33, 17);
             this.infoTextRichBox.Name = "infoTextRichBox";
             this.infoTextRichBox.Size = new System.Drawing.Size(393, 64);
@@ -63,9 +65,11 @@
             this.editValues.TabIndex = 2;
             this.editValues.Text = "Edit my data";
             this.editValues.UseVisualStyleBackColor = true;
+            this.editValues.Click += new System.EventHandler(this.editValues_Click);
             // 
             // versionLabel
             // 
+            this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.versionLabel.AutoSize = true;
             this.versionLabel.Location = new System.Drawing.Point(9, 289);
             this.versionLabel.Name = "versionLabel";
@@ -75,6 +79,7 @@
             // 
             // progressBar1
             // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(340, 279);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(100, 23);
@@ -83,6 +88,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.BackColor = System.Drawing.SystemColors.Menu;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
@@ -93,7 +99,7 @@
             this.textBox2.TabIndex = 5;
             this.textBox2.Text = "Progress on Programm:";
             // 
-            // Form1
+            // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -104,8 +110,8 @@
             this.Controls.Add(this.editValues);
             this.Controls.Add(this.infoTextRichBox);
             this.Controls.Add(this.weekRota);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "mainForm";
+            this.Text = "Main";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

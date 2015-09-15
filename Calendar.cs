@@ -20,67 +20,24 @@ namespace SalaryCalculator_Elvis
         Dictionary<string, string> dateColorDictionary = new Dictionary<string, string>();
         Label monthYear = new Label();
         DateTime timeNow;
+        DateTime startOfMonth;
         int offset = 0;
         public Calendar()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            //monthCalendar1.Al
-
             this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 40F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 800);
             this.Name = "Form2";
             this.Text = "Calendar";
-            this.ResumeLayout(false);
-            generateCalendar();
-        }
-        public int checkMonthStart(string month)
-        {
-            //int offset = 0;
-            switch (month)
-            {
-                case "Monday":
-                    offset = 0;
-                    break;
-                case "Tuesday":
-                    offset = 1;
-                    break;
-                case "Wednesday":
-                    offset = 2;
-
-                    break;
-                case "Thursday":
-                    offset = 3;
-                    break;
-                case "Friday":
-                    offset = 4;
-                    break;
-                case "Saturday":
-                    offset = 5;
-                    break;
-                case "Sunday":
-                    offset = 6;
-                    break;
-                default:
-                    offset = 0;
-                    break;
-
-            }
-            return offset;
-        }
-        public void generateCalendar()
-        {
-            // dictionary.Add("1","Color.AliceBlue");
-
-            this.SuspendLayout();
+            this.ResumeLayout(true);
 
             /*
             Generate month and year in form
             */
-
-            // DateTime.Now.Ad
             timeNow = DateTime.Today;
+           startOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
             monthYear.Text = timeNow.ToString("Y");
             monthYear.Size = new System.Drawing.Size(200, 40);
             monthYear.Location = new Point(200, 10);
@@ -98,7 +55,6 @@ namespace SalaryCalculator_Elvis
             addMonth.Location = new Point(500, 15);
             addMonth.Click += new EventHandler(nextMonth);
             this.Controls.Add(addMonth);
-
             /*
             generates button for changing month backwards
             */
@@ -108,11 +64,54 @@ namespace SalaryCalculator_Elvis
             reduceMonth.Click += new EventHandler(prevMonth);
             this.Controls.Add(reduceMonth);
 
-            /*
-            Generates week day names
-            */
+
+            generateCalendar(checkMonthStart(startOfMonth.ToString("dddd")));
+           // testWindow.Text = checkMonthStart(startOfMonth.ToString("dddd")).ToString();
+
+
+            // testWindow.Text += offset.ToString();
+        }
+        public int checkMonthStart(string month)
+        {
+            //int offset = 0;
+            switch (month)
+            {
+                case "Monday":
+                    offset = 0;
+                    break;
+                case "Tuesday":
+                    offset = 1;
+                    break;
+                case "Wednesday":
+                    offset = 2;
+                    break;
+                case "Thursday":
+                    offset = 3;
+                    break;
+                case "Friday":
+                    offset = 4;
+                    break;
+                case "Saturday":
+                    offset = 5;
+                    break;
+                case "Sunday":
+                    offset = 6;
+                    break;
+                default:
+                    offset = 0;
+                    break;
+            }
+            return offset;
+        }
+
+        public void generateCalendar(int offset)
+        {
+           
+
+            this.SuspendLayout();
 
             int counter = 1;
+            //offset = checkMonthStart(startOfMonth.ToString("dddd"));
             string[] weekDayArray = new String[7] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
             for (int z = 0; z < 7; z++)
             {
@@ -128,20 +127,6 @@ namespace SalaryCalculator_Elvis
                 weekDays.Text = weekDayArray[z].ToString();
                 this.Controls.Add(weekDays);
             }
-
-            /*
-            Generates dates for month
-            Big thanks for @purposelydrifting for help
-            */
-            /*
-            check in which day starts month
-            */
-
-
-
-            var startOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
-
-            int offset = checkMonthStart(startOfMonth.ToString("dddd"));
             for (int y = 0; y < 5 + offset; y++)
                 for (int x = 0; x < 7; x++)
                 {
@@ -162,20 +147,14 @@ namespace SalaryCalculator_Elvis
                     // bool lblClicked = true;
 
                     this.Controls.Add(t);
-
-                    /*
-                    Hiding dates which ones are not in following month
-                    */
+                    counter++;
                     t.Visible = (int.Parse(t.Text) >= offset - (offset - 1))
                         && (counter - checkMonthStart(startOfMonth.ToString("dddd"))
-                        < System.DateTime.DaysInMonth(startOfMonth.Year, startOfMonth.Month) + 1);
-
-                    counter++;
-
-                    testWindow.Text = startOfMonth.ToString("dddd") + " " + DateTime.DaysInMonth(startOfMonth.Year, startOfMonth.Month);
+                        <= DateTime.DaysInMonth(startOfMonth.Year, startOfMonth.Month) + offset);
+                    // testWindow.Text = startOfMonth.ToString("dddd") + " " + DateTime.DaysInMonth(startOfMonth.Year, startOfMonth.Month) + " " + offset + "<-offset";
                 }
-
         }
+
 
         private void nextMonth(object sender, EventArgs e)
         {
@@ -187,8 +166,8 @@ namespace SalaryCalculator_Elvis
                 newDate = newDate.AddMonths(1);
                 timeNow = newDate;
                 monthYear.Text = newDate.ToString("Y");
-                var startOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
-                testWindow.Text = startOfMonth.ToString("dddd") + " " + DateTime.DaysInMonth(startOfMonth.Year, startOfMonth.Month); ;
+                offset = checkMonthStart(timeNow.ToString("dddd"));
+                // testWindow.Text = startOfMonth.ToString("dddd") + " " + DateTime.DaysInMonth(startOfMonth.Year, startOfMonth.Month); ;
 
 
             }
@@ -203,9 +182,9 @@ namespace SalaryCalculator_Elvis
                 newDate = newDate.AddMonths(-1);
                 timeNow = newDate;
                 monthYear.Text = newDate.ToString("Y");
+                offset = checkMonthStart(timeNow.ToString("dddd"));
+                //testWindow.Text = startOfMonth.ToString("dddd") + " " + DateTime.DaysInMonth(startOfMonth.Year, startOfMonth.Month); ;
 
-                var startOfMonth = new DateTime(timeNow.Year, timeNow.Month, 1);
-                testWindow.Text = startOfMonth.ToString("dddd") + " " + DateTime.DaysInMonth(startOfMonth.Year, startOfMonth.Month); ;
 
             }
         }
@@ -291,7 +270,7 @@ namespace SalaryCalculator_Elvis
 
         private void saveCalendarButton_Click(object sender, EventArgs e)
         {
-            generateCalendar();
+            //generateCalendar(2);
 
         }
 

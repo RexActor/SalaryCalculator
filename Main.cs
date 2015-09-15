@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace SalaryCalculator_Elvis
 {
-    public partial class Main : Form
+    public partial class mainForm : Form
     {
         string version = "V0.1";
-        public Main()
+        public mainForm()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -28,6 +28,7 @@ namespace SalaryCalculator_Elvis
             this.infoTextRichBox.Text = "This software is designe" +
             "specialy for tracing your salary in specific situation";
             this.versionLabel.Text = version;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void weekRota_Click(object sender, EventArgs e)
@@ -46,6 +47,10 @@ namespace SalaryCalculator_Elvis
 
         }
 
-
+        private void editValues_Click(object sender, EventArgs e)
+        {
+            Calendar_test calendar = new Calendar_test();
+            calendar.Show();
+        }
     }
 }
